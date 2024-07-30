@@ -5,8 +5,15 @@
   --slate500: hsl(200, 26%, 54%);
   --slate700: hsl(200, 24%, 40%);
   --slate900: hsl(202, 55%, 16%);
+  --slate1100: hsl(202, 75%, 10%);
   --lime: hsl(61, 70%, 52%);
   --red: hsl(4, 69%, 50%);
+  --mobile-breakpoint: 375px;
+	--desktop-breakpoint: 1440px;
+}
+
+body {
+  margin: 0;
 }
 
 * {
@@ -81,6 +88,7 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 1rem;
 }
 
 form label {
@@ -93,7 +101,6 @@ form label {
 form .Input {
   border: 1px solid var(--slate500);
   border-radius: 0.25rem;
-  margin-bottom: 0.5rem;
   width: 100%;
   display: flex;
 }
@@ -149,4 +156,73 @@ form button img {
 
 .termAndInterest>* {
   width: 100%;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  height: 100%;
+  color: var(--slate300);
+  text-align: start;
+}
+
+.result h3{
+  color: var(--slate100);
+}
+
+.result * {
+  margin: 0;
+}
+
+.ResultContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: var(--slate1100);
+  border-radius: 0.25rem;
+  border-top: 3px solid var(--lime);
+  padding: 1.5rem;
+}
+
+.ResultContainer .monthlyResult {
+  font-size: 2rem;
+  color: var(--lime);
+}
+
+.ResultContainer .totalResult {
+  font-size: 1.25rem;
+  color: var(--slate100);
+}
+
+.ResultContainer .line {
+  display: block;
+  border: 1px solid var(--slate900);
+}
+
+@media all and (max-width: 375px) {
+  .container {
+    width: 100%;
+    flex-direction: column;
+    border-radius: 0;
+  }
+  .left {
+    width: 100%;
+  },
+  .left form {
+    gap: 1rem;
+  }
+  .right {
+    width: 100%;
+    border-radius: 0;
+  }
+  .termAndInterest {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  form button[type="submit"] {
+    width: 100%;
+    justify-content: center;
+  }
 }
