@@ -32,7 +32,7 @@ function App() {
   //effects
   useEffect(() => {
     if(total == 0){setMonthly(0);}
-    else{setMonthly(total / (term * 12));}
+    else{setMonthly(total / (term * 12))}
   }, [total, term]);
 
   return (
@@ -49,7 +49,7 @@ function App() {
               <Input inputName="Mortgage Term" icon="years" iconDirection="end" onMortgageTerm={MortgageTerm}></Input>
               <Input inputName="Interest Rate" icon="percent" iconDirection="end" onInterestRate={InterestRate}></Input>
             </div>
-            <button type="submit" onClick={(e) => { e.preventDefault(); setTotal(amount * Math.pow(1 + interestRate / 100, term)); setShowResult(true) }}>
+            <button type="submit" onClick={(e) => { e.preventDefault(); setTotal((amount * Math.pow(1 + interestRate / 100, term))); setShowResult(true) }}>
               <img src="../src/assets/images/icon-calculator.svg" alt="calculator img" />
               Calculate Repayments
             </button>
