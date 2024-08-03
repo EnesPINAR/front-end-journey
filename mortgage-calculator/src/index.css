@@ -209,9 +209,17 @@ form button img {
   }
   .left {
     width: 100%;
-  },
+  }
   .left form {
     gap: 1rem;
+  }
+  .head{
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .ClearForm{
+    width: max-content;
+    padding: 0;
   }
   .right {
     width: 100%;
