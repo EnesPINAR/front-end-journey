@@ -31,7 +31,8 @@ function App() {
 
   //effects
   useEffect(() => {
-    setMonthly(total / (term * 12));
+    if(total == 0){setMonthly(0);}
+    else{setMonthly(total / (term * 12));}
   }, [total, term]);
 
   return (
