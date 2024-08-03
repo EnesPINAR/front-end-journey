@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import './App.css'
 
 //components
@@ -29,6 +29,11 @@ function App() {
     setInterestRate(childData);
   }, []);
 
+  //effects
+  useEffect(() => {
+    setMonthly(total / (term * 12));
+  }, [total, term]);
+
   return (
     <>
       <div className="container">
@@ -43,7 +48,7 @@ function App() {
               <Input inputName="Mortgage Term" icon="years" iconDirection="end" onMortgageTerm={MortgageTerm}></Input>
               <Input inputName="Interest Rate" icon="percent" iconDirection="end" onInterestRate={InterestRate}></Input>
             </div>
-            <button type="submit" onClick={(e) => { e.preventDefault(); setTotal(amount * Math.pow(1 + interestRate / 100, term)); setMonthly(total / (term * 12)); setShowResult(true) }}>
+            <button type="submit" onClick={(e) => { e.preventDefault(); setTotal(amount * Math.pow(1 + interestRate / 100, term)); setShowResult(true) }}>
               <img src="../src/assets/images/icon-calculator.svg" alt="calculator img" />
               Calculate Repayments
             </button>
